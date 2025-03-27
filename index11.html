@@ -10,12 +10,17 @@
             var i = 0, vetor = [];
 
             do {
-                vetor[i++] = prompt("Informe o nome");
+                var objeto = {};
+                objeto.nome = prompt("Informe o nome:");
+                objeto.curso = prompt("Informe o curso:"); 
+
+                vetor[i++] = objeto;
             } while (confirm("Deseja informar outro nome?"));
 
             resp.innerHTML = "Nomes informados: <br />"
-            vetor.forEach(function (nome, i) {resp.innerHTML += `${i}) ${nome} <br />`});
-        
+            vetor = vetor.map((obj, i) => `${i}) ${obj.nome}: ${obj.curso} <br/>`);
+            resp.innerHTML += vetor.join("");
+        }
     </script>
 </head>
 
